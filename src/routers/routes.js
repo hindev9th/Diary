@@ -1,7 +1,8 @@
 import Home from '../pages/Home';
 import Messages from '../pages/Messages';
 import Profile from '../pages/Profile';
-import Login from '../pages/Auth/Login/Login';
+import Login from '../pages/Auth/Login';
+import Register from '../pages/Auth/Register';
 import config from '../config';
 
 const routes = [
@@ -22,6 +23,10 @@ const pubRoutes = [
     {
         path: config.routes.login,
         component: Login,
+    },
+    {
+        path: config.routes.register,
+        component: Register,
     },
 ]
 

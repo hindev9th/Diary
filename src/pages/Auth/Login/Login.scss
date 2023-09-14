@@ -2,10 +2,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
+
+    .title {
+
+        padding-bottom: 50px;
+
+        h1 {
+            font-size: 3rem;
+            line-height: 3rem;
+            padding-bottom: 10px;
+        }
+    }
 
     .form-login {
         display: flex;
         flex-direction: column;
+        text-align: center;
+
+        input {
+            text-align: center;
+        }
+
+        button {
+            background-color: rgb(var(--primary-button));
+            color: #fff;
+            font-size: var(--system-14-size);
+            font-weight: 600;
+            border: none;
+            padding: 7px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    }
+
+    .message-sign-up {
+        font-size: var(--system-14-size);
+        color: rgb(var(--primary-color));
+        margin-top: 20px;
+
+        a {
+            color: rgb(var(--primary-button));
+            font-weight: 600;
+        }
     }
 }

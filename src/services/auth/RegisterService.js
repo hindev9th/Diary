@@ -1,11 +1,9 @@
 import apiRequest from "../../utils/apiRequest";
-
-export const login = async (data) => {
+export const RegisterService = async(data) =>{
     try {
-        let res = await apiRequest.post('login', data)
+        let res = await apiRequest.post('register',data);
         return res.data;
     } catch (error) {
         console.log(error);
     }
-
-}
+};

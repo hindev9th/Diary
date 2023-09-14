@@ -1,4 +1,4 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import config from '../../../config';
 import { useState } from 'react';
 import css from './Login.scss';
@@ -20,7 +20,7 @@ function Login() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const result = await login(email, password);
+        const result = await login({ email, password });
         if (result.status === 200) {
             localStorage.setItem('user', result.token);
             navigate(config.routes.home);
@@ -29,14 +29,21 @@ function Login() {
     };
     return (
         <div className={cx('login-container')}>
-
             <form className={cx('form-login')} onSubmit={handleLogin}>
-                <label htmlFor='email'>Email</label>
-                <input type='email' onChange={e => setEmail(e.target.value)} id='email' required placeholder="Email@email.com" />
-                <label htmlFor='password'>Password</label>
-                <input type='password' onChange={e => setPassword(e.target.value)} id='password' required placeholder="Your password" />
+                <div className={cx('title')}>
+                    <h1>Diary</h1>
+                </div>
+
+                <div className={cx('input input-box')}>
+                    <input type='email' onChange={e => setEmail(e.target.value)} id='email' required placeholder="Email" />
+                </div>
+                <div className={cx('input input-box')}>
+                    <input type='password' onChange={e => setPassword(e.target.value)} id='password' required placeholder="Password" />
+                </div>
                 <button>Login</button>
             </form>
+            <span className={cx('message-sign-up')}>Don't have an account? <Link to={config.routes.register}>Sign up</Link></span>
+
         </div>
     );
 }
