@@ -2,13 +2,20 @@ import classNames from 'classnames';
 import Menu from '../Menu';
 import css from './DefaultLayout.scss';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getAuth } from '../../actions/authAction';
 
 const cx = classNames.bind(css);
 
 function DefaultLayout({ children }) {
+    const dispatch = useDispatch();
     useEffect(() => {
-        console.log("ok");
-    }, [])
+        const fetchData = async () => {
+            const authAction = await getAuth();
+            dispatch(authAction);
+        };
+        fetchData();
+    }, [dispatch])
 
     return (
         <div className={cx("wrapper")}>

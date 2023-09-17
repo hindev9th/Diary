@@ -3,16 +3,34 @@
         display: flex;
 
         .avatar {
-            width: 30px;
-            height: 30px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
         }
 
-        .name {
+        .info {
+            display: flex;
+            flex-direction: column;
+            padding-left: 10px;
+        }
+
+        .username {
+            display: flex;
+            align-items: center;
+            color: rgb(var(--primary-color));
+            font-size: var(--system-14-size);
+            line-height: var(--system-14-line-height);
             font-weight: 600;
+
+            img {
+                margin-left: 5px;
+            }
         }
 
         .name {
+            color: rgb(var(--secondary-text));
+            font-size: var(--system-14-size);
+            line-height: var(--system-14-line-height);
             font-weight: 400;
         }
     }

@@ -1,22 +1,26 @@
 import { Link } from 'react-router-dom';
-import config from '../../config';
 import css from './Account.scss';
 import images from '../../assets/images';
-import { BiSolidBadgeCheck } from 'react-icons/fa6'
+import classNames from 'classnames';
 
-const cx = className.bind(css)
+const cx = classNames.bind(css)
 
-function Account({ account }) {
+function Account(data) {
+    const user = data.data || {};
     return (
-        <Link to={config.routes.profile} className={cx('account-item')}>
+        <div className={cx('account-item')}>
             <div className={cx('item')}>
-                <img src={images.avt} className={cx('avatar')} />
+                <Link to={`/${user.username}`} >
+                    <img src={images.avt} className={cx('avatar')} alt='' />
+                </Link>
                 <div className={cx('info')}>
-                    <strong className={cx('username')}>username <span><BiSolidBadgeCheck /></span></strong>
-                    <span className={cx('name')}>name</span>
+                    <Link to={`/${user.username}`} >
+                        <strong className={cx('username')}>{user.username}<img src={user.email_verified_at ? images.icons.check : ''} alt='' /></strong>
+                    </Link>
+                    <span className={cx('name')}>{user.name}</span>
                 </div>
             </div>
-        </Link>
+        </div>
     );
 }
 

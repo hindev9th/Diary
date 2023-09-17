@@ -1,0 +1,22 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+
+    .posts {
+        width: 100%;
+        max-width: 470px;
+    }
+
+    .feed-right {
+        width: 100%;
+        max-width: 319px;
+        margin-left: 64px;
+
+        .user {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 16px;
+        }
+    }
+}

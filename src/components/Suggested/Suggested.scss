@@ -1,0 +1,15 @@
+.suggested {
+    .title {
+        padding: 4px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .text {
+            color: rgb(var(--secondary-text));
+            font-size: var(--system-14-size);
+            line-height: var(--system-14-line-height);
+            font-weight: 600;
+        }
+    }
+}

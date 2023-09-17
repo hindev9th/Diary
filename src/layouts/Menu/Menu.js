@@ -7,12 +7,14 @@ import { FaRegSquarePlus } from 'react-icons/fa6';
 import { BsSearch } from 'react-icons/bs'
 import Search from '../Search/Search';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const cx = className.bind(css);
 
 function Menu() {
     const location = useLocation();
     const [state, setState] = useState({ isShowSearch: false, })
+    const auth = useSelector(state => state.authState);
 
 
     const toggleSearch = () => {
@@ -45,7 +47,7 @@ function Menu() {
                     <div className={cx('item-icon')}><FaRegSquarePlus /></div>
                     <div className={cx('item-name')}>Create</div>
                 </div>
-                <Link to={`/nana`} className={cx(`item ${location.pathname === `/nana` ? 'active' : ''}`)}>
+                <Link to={`/${auth.username}`} className={cx(`item ${location.pathname === `/${auth.username}` ? 'active' : ''}`)}>
                     <div className={cx('item-icon')}>
                         <img src={images.avt} className={cx('avatar')} alt='avatar' />
                     </div>
